@@ -1,8 +1,13 @@
-const change_temperature = payload => { 
-    return { 
-        type: "CAHNGE_TEMPERATURE", 
-        payload: payload
+const increaseTemp = () => {
+    return {
+        type: "INCREASE_TEMP"
     }
-};
+}
 
-export { change_temperature };
+const decreaseTemp = () => {
+    return {
+        type: "DECREASE_TEMP"
+    }
+}
+
+export { increaseTemp, decreaseTemp };

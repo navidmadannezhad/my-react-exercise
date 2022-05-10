@@ -1,23 +1,21 @@
 import React from "react";
-import { useState } from "react";
+import {connect } from "react-redux";
 
 import TempView from "./TempView";
-import temperature_color from "../utils/temperature";
+import { decreaseTemp, increaseTemp } from "../actions";
 
-const TempSystem = () => {
-
-    const [temp, setTemp] = useState(0);
+const TempSystem = (props) => {
 
     return(
         <div className="temp-system">
 
-            <TempView temp={temp} />
+            <TempView temp={props.temp} />
 
             <div className="buttons">
-                <div className="increament" onClick={() => setTemp(temp+1)}>
+                <div className="increament" onClick={() => props.increaseTemp()}>
                     +
                 </div>
-                <div className="decreament" onClick={() => setTemp(temp-1)}>
+                <div className="decreament" onClick={() => props.decreaseTemp()}>
                     -
                 </div>
             </div>
@@ -26,4 +24,17 @@ const TempSystem = () => {
     )
 }
 
-export default TempSystem;
+
+
+const mapStateToProps = state => {
+    return {
+        temp: state.system_temperature
+    }
+}
+
+const mapDispatchToProps = {
+    increaseTemp,
+    decreaseTemp
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TempSystem);

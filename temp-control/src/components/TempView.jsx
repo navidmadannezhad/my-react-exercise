@@ -1,9 +1,9 @@
 import React from "react";
 
-const TempView = ({ temp }) => {
+const TempView = (props) => {
     return(
         <div className="temp-view">
-            { temp }
+            { props.temp }
         </div>
     )
 }

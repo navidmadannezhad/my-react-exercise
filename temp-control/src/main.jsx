@@ -7,12 +7,11 @@ import store from "./store/index";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-  <Provider store={ store }>
-
+  <Provider store={store}>
     <React.StrictMode>
       <App />
     </React.StrictMode>
-
   </Provider>
+
 )
 
