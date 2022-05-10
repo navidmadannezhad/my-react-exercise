@@ -11,25 +11,25 @@ const temp_colors = {
 
 const temperature_color = temp_value => {
     switch(true){
-        case temp_value < -50:
+        case temp_value <= -50:
             return temp_colors.under_50;
             break;
-        case temp_value > -50 && temp_value < -25:
+        case temp_value > -50 && temp_value <= -25:
             return temp_colors.under_25;
             break;
-        case temp_value > -25 && temp_value < -10:
+        case temp_value > -25 && temp_value <= -10:
             return temp_colors.under_10;
             break;
-        case temp_value > -10 && temp_value < 10:
+        case temp_value > -10 && temp_value <= 10:
             return temp_colors.zero;
             break;
-        case temp_value > 10 && temp_value < 25:
+        case temp_value > 10 && temp_value <= 25:
             return temp_colors.above_10;
             break;
-        case temp_value > 25 && temp_value < 50:
+        case temp_value > 25 && temp_value <= 50:
             return temp_colors.above_25;
             break;
-        case temp_value > 50 && temp_value < 100:
+        case temp_value > 50 && temp_value <= 100:
             return temp_colors.above_50;
             break; 
         default:
