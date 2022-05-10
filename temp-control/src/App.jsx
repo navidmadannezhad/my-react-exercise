@@ -1,20 +1,25 @@
-import './App.css';
-import TempSystem from './components/TempSystem';
+import { useState } from 'react';
 import { connect } from "react-redux";
 
-function App() {
+import './App.css';
+import TempSystem from './components/TempSystem';
+import temperature_color from "./utils/temperature";
+
+
+
+const App = props => {
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: temperature_color(props.temp) }}>
       <TempSystem />
     </div>
   )
 }
 
+
+
 const mapStateToProps = state => {
-  return { system_temperature: state.system_temperature }
+  return { temp: state.system_temperature }
 }
 
-const root = connect(mapStateToProps)(App);
-
-export default App
+export default connect(mapStateToProps)(App);

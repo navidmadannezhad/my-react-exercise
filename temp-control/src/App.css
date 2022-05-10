@@ -18,6 +18,8 @@ div.root, div.App {
       -ms-flex-align: center;
           align-items: center;
   background-color: #e2e2e2;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 div.temp-system {
