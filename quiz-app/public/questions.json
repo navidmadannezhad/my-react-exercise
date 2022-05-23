@@ -1,0 +1,117 @@
+{
+    "0": {
+        "question": "when did the soviet union collapsed?",
+        "answers": [
+        {
+            "1": {
+            "text": "1991",
+            "state": true
+            },
+            "2": {
+            "text": "1995",
+            "state": false
+            },
+            "3": {
+            "text": "1980",
+            "state": false
+            },
+            "4": {
+            "text": "1917",
+            "state": false
+            }
+        }
+        ]
+    },
+    "1": {
+        "question": "in what year did Stalin start the great purge?",
+        "answers": [
+        {
+            "1": {
+                "text": "1953",
+                "state": false
+            },
+            "2": {
+                "text": "1924",
+                "state": false
+            },
+            "3": {
+                "text": "1933",
+                "state": true
+            },
+            "4": {
+                "text": "1941",
+                "state": false
+            }
+        }
+        ]
+    },
+    "2": {
+        "question": "Who was famous as the 'Russian Davinci' ?",
+        "answers": [
+        {
+            "1": {
+            "text": "Joseph Stalin",
+            "state": false
+            },
+            "2": {
+            "text": "Pavel Florensky",
+            "state": true
+            },
+            "3": {
+            "text": "Mikhail Bulgakov",
+            "state": false
+            },
+            "4": {
+            "text": "Georgy Zhukov",
+            "state": false
+            }
+        }
+        ]
+    },
+    "3": {
+        "question": "What was the most feared mass destruction weapon during the era of cold war?",
+        "answers": [
+        {
+            "1": {
+            "text": "Propaganda",
+            "state": false
+            },
+            "2": {
+            "text": "Tzar Bomb",
+            "state": true
+            },
+            "3": {
+            "text": "Castle Bravo bomb",
+            "state": false
+            },
+            "4": {
+            "text": "Abrahams Tank",
+            "state": false
+            }
+        }
+        ]
+    },
+    "4": {
+        "question": "Who was the first intellegence chief in Soviet Union?",
+        "answers": [
+        {
+            "1": {
+            "text": "Felix Dzerzhinsky",
+            "state": true
+            },
+            "2": {
+            "text": "Genrikh Yagoda",
+            "state": false
+            },
+            "3": {
+            "text": "Yuri Andropov",
+            "state": false
+            },
+            "4": {
+            "text": "Nikolai Yezhov",
+            "state": false
+            }
+        }
+        ]
+    }
+}
