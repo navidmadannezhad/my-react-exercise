@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Question from './components/Question';
+import QuestionBox from './components/QuestionBox';
 import "../public/css/main.css";
 
 function App() {
 
   return (
-    <div className="App">
+    <div className="app">
 
-      <Question />
+      <QuestionBox />
 
     </div>
   )

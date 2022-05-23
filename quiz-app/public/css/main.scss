@@ -1,3 +1,24 @@
 html , body{
     background-color: #10152c;
+    color: white;
+    font-family: raleway;
+}
+
+div.app{
+    height: 100vh !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.timer-component{
+    font-size: 1.5rem;
+}
+
+div.questionbox-component{
+    min-width: 30%;
+    border: 3px solid rgb(196, 196, 196);
+    border-radius: 20px;
+    background-color: #1b2138;
 }

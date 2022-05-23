@@ -1,4 +1,30 @@
 html, body {
   background-color: #10152c;
+  color: white;
+  font-family: raleway;
+}
+
+div.app {
+  height: 100vh !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.timer-component {
+  font-size: 1.5rem;
+}
+
+div.questionbox-component {
+  min-width: 30%;
+  border: 3px solid #c4c4c4;
+  border-radius: 20px;
+  background-color: #1b2138;
 }
 /*# sourceMappingURL=main.css.map */

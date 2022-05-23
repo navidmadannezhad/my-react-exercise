@@ -56,7 +56,7 @@ const Timer = () => {
     });
 
     return (
-        <div className="timer-component text-light">
+        <div className="timer-component text-light font">
             { 
                 String(hours).length == 1 ? (
                     <span>
