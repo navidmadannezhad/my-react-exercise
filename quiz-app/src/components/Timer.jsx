@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
 
-const required_hours = 0;
-const required_minutes = 3;
-const required_seconds = 10;
-
 const Timer = () => {
 
-    const [seconds, setSeconds] = useState(required_seconds);
-    const [minutes, setMinutes] = useState(required_minutes);
-    const [hours, setHours] = useState(required_hours);
+    const [seconds, setSeconds] = useState(10);
+    const [minutes, setMinutes] = useState(3);
+    const [hours, setHours] = useState(0);
 
     const lowerSeconds = () => {
-        if(seconds <= 0){
+        if(seconds === 0){
+            console.log("second is -!");
             setSeconds(59);
             lowerMinutes();
         }else{
-            setSeconds(seconds - 1)
+            setSeconds(function(seconds){
+                return seconds - 1;
+            })
         }
     }
 
@@ -24,7 +23,9 @@ const Timer = () => {
             setMinutes(59);
             lowerHours();
         }else{
-            setMinutes(minutes - 1)
+            setMinutes(function(minutes){
+                return minutes - 1;
+            })
         }
     }
 
@@ -33,7 +34,9 @@ const Timer = () => {
             setHours(24);
             lowerMinutes();
         }else{
-            setHours(hours - 1)
+            setHours(function(hours){
+                return hours - 1;
+            })
         }
     }
 
@@ -53,10 +56,10 @@ const Timer = () => {
         if(hours == 0 && minutes == 0 && seconds == 0){
             stopTimer(timer);
         }
-    });
+    }, []);
 
     return (
-        <div className="timer-component text-light font">
+        <div className="timer-component text-light">
             { 
                 String(hours).length == 1 ? (
                     <span>
@@ -102,4 +105,4 @@ const Timer = () => {
     )
 }
 
-export default Timer;
+export default Timer; 

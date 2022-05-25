@@ -21,4 +21,8 @@ div.questionbox-component{
     border: 3px solid rgb(196, 196, 196);
     border-radius: 20px;
     background-color: #1b2138;
+
+    div.box-header{
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
 }

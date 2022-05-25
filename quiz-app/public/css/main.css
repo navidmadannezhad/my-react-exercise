@@ -27,4 +27,8 @@ div.questionbox-component {
   border-radius: 20px;
   background-color: #1b2138;
 }
+
+div.questionbox-component div.box-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
 /*# sourceMappingURL=main.css.map */
