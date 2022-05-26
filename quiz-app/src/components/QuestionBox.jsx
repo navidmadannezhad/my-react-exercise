@@ -11,7 +11,7 @@ const QuestionBox = () => {
                 <div className="message mb-2">
                     Answer these questions carefully and also, pay attention to the timer!
                 </div>
-                <TestTimer />
+                <Timer />
             </div>
 
             <div className="box-main p-4">
