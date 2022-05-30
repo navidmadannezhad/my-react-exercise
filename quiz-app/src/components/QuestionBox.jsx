@@ -1,9 +1,17 @@
 import Timer from "./Timer";
 import TestTimer from "./TestTimer";
+import { useEffect } from "react";
+import { connect } from "react-redux";
+import { get_questions } from "../action";
 
 const QuestionBox = () => {
 
-    console.log("question box rendered");
+    useEffect(() => {
+        get_questions();
+        setTimeout(() => {
+            console.log(questions);
+        }, 5000);
+    }, []);
 
     return (
         <div className="questionbox-component border-bottom p-4">
@@ -21,4 +29,15 @@ const QuestionBox = () => {
     )
 }
 
-export default QuestionBox;
+
+const mapActionsToProps = {
+    get_questions: get_questions
+};
+
+const mapStatesToProps = state => {
+    return {
+        questions: state.questions
+    }
+};
+
+export default connect(mapStatesToProps, mapActionsToProps)(QuestionBox);

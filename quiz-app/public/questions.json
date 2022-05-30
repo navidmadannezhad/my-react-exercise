@@ -1,5 +1,5 @@
-{
-    "0": {
+[
+    {
         "question": "when did the soviet union collapsed?",
         "answers": [
         {
@@ -22,7 +22,7 @@
         }
         ]
     },
-    "1": {
+    {
         "question": "in what year did Stalin start the great purge?",
         "answers": [
         {
@@ -45,7 +45,7 @@
         }
         ]
     },
-    "2": {
+    {
         "question": "Who was famous as the 'Russian Davinci' ?",
         "answers": [
         {
@@ -68,7 +68,7 @@
         }
         ]
     },
-    "3": {
+    {
         "question": "What was the most feared mass destruction weapon during the era of cold war?",
         "answers": [
         {
@@ -91,7 +91,7 @@
         }
         ]
     },
-    "4": {
+    {
         "question": "Who was the first intellegence chief in Soviet Union?",
         "answers": [
         {
@@ -114,4 +114,4 @@
         }
         ]
     }
-}
+]
