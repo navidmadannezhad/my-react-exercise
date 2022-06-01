@@ -2,15 +2,15 @@ import Timer from "./Timer";
 import TestTimer from "./TestTimer";
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { get_questions } from "../action";
+import { get_questions } from "../action/index";
 
-const QuestionBox = () => {
+const QuestionBox = (props) => {
 
     useEffect(() => {
-        get_questions();
+        props.get_questions();
         setTimeout(() => {
-            console.log(questions);
-        }, 5000);
+            console.log("this"+props.questions);
+        });
     }, []);
 
     return (
@@ -31,7 +31,7 @@ const QuestionBox = () => {
 
 
 const mapActionsToProps = {
-    get_questions: get_questions
+    get_questions
 };
 
 const mapStatesToProps = state => {
