@@ -21,14 +21,18 @@ div.timer-component {
   font-size: 1.5rem;
 }
 
-div.questionbox-component {
+div.dashboard-component {
   min-width: 30%;
   border: 3px solid #c4c4c4;
   border-radius: 20px;
   background-color: #1b2138;
 }
 
-div.questionbox-component div.box-header {
+div.dashboard-component div.box-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+div.dashboard-component div.question {
+  font-weight: bold;
 }
 /*# sourceMappingURL=main.css.map */

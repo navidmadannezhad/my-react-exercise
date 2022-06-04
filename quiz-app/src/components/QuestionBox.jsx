@@ -1,43 +1,71 @@
-import Timer from "./Timer";
-import TestTimer from "./TestTimer";
-import { useEffect } from "react";
-import { connect } from "react-redux";
-import { get_questions } from "../action/index";
+import { Form, Button } from 'react-bootstrap';
 
-const QuestionBox = (props) => {
-
-    useEffect(() => {
-        props.get_questions();
-        setTimeout(() => {
-            console.log("this"+props.questions);
-        });
-    }, []);
+const QuestionBox = props => {
 
     return (
-        <div className="questionbox-component border-bottom p-4">
-            <div className="box-header text-center">
-                <div className="message mb-2">
-                    Answer these questions carefully and also, pay attention to the timer!
-                </div>
-                <Timer />
-            </div>
+        <div className="question-component">
+            {
+                !props.answered && props.question && (
+                    <div className="box-main not-answered p-4">
+                        <div className="question">
+                            <span>{props.question.number}. </span>
+                            <span>{props.question.question}</span>
+                        </div>
+                        <div className="options mt-3">
+                            <Form>
+                                {
+                                    props.question.answers.map(answer => (
+                                        <Form.Check
+                                            type="radio"
+                                            label={answer.text}
+                                            name="answer"
+                                            key={answer.text}
 
-            <div className="box-main p-4">
+                                            className="ps-5 pt-1 pb-1 m-1 rounded"
+                                        />
+                                    ))
+                                }
+                            </Form>
+                        </div>
+                        <div className="w-100 text-center">
+                            <Button onClick={ () => { props.setAnswered(true) } }>Result</Button>
+                        </div>
+                    </div>
+                )
+            }
 
-            </div>
+            {
+                props.answered && props.question && (
+                    <div className="box-main not-answered p-4">
+                        <div className="question">
+                            <span>{props.question.number}. </span>
+                            <span>{props.question.question}</span>
+                        </div>
+                        <div className="options mt-3">
+                            <Form>
+                                {
+                                    props.question.answers.map(answer => (
+                                        <Form.Check
+                                            disabled
+                                            type="radio"
+                                            label={answer.text}
+                                            name="answer"
+                                            key={answer.text}
+
+                                            className={`ps-5 pt-1 pb-1 m-1 rounded ${ answer.state ? "bg-success" : "bg-danger" }`}
+                                        />
+                                    ))
+                                }
+                            </Form>
+                        </div>
+                        <div className="w-100 text-center">
+                            <Button onClick={() => { props.activateNextQuestion() }}>Next Qusestion!</Button>
+                        </div>
+                    </div>
+                )
+            }
         </div>
     )
 }
 
-
-const mapActionsToProps = {
-    get_questions
-};
-
-const mapStatesToProps = state => {
-    return {
-        questions: state.questions
-    }
-};
-
-export default connect(mapStatesToProps, mapActionsToProps)(QuestionBox);
+export default QuestionBox;

@@ -16,7 +16,7 @@ div.timer-component{
     font-size: 1.5rem;
 }
 
-div.questionbox-component{
+div.dashboard-component{
     min-width: 30%;
     border: 3px solid rgb(196, 196, 196);
     border-radius: 20px;
@@ -24,5 +24,9 @@ div.questionbox-component{
 
     div.box-header{
         border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    div.question{
+        font-weight: bold;
     }
 }

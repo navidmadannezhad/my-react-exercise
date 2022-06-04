@@ -3,7 +3,6 @@ let initialState = {
 };
 
 const rootReducer = (state = initialState, action) => {
-    console.log(action);
     switch(action.type){
         case "GET_QUESTIONS":
             return {
