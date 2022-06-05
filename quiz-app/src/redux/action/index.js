@@ -10,4 +10,16 @@ const get_questions = () => async (dispatch) => {
     })
 };
 
-export { get_questions };
+const increase_score = () => async (dispatch) => {
+    dispatch({
+        type: "INCREASE_SCORE",
+    })
+};
+
+const decrease_score = () => async (dispatch) => {
+    dispatch({
+        type: "DECREASE_SCORE",
+    })
+};
+
+export { get_questions, increase_score, decrease_score };

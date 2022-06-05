@@ -1,4 +1,5 @@
 import { Form, Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 const GameFinishedBox = props => {
 
@@ -28,7 +29,7 @@ const GameFinishedBox = props => {
                 <div className="options mt-3 text-center">
                     <span>YOUR SCORE:</span>
                     <br/>
-                    <span>12/12</span>
+                    <span>{props.score}/5</span>
                 </div>
 
                 <div className="w-100 text-center mt-3">
@@ -39,4 +40,10 @@ const GameFinishedBox = props => {
     )
 }
 
-export default GameFinishedBox;
+const mapStatesToProps = state => {
+    return {
+        score: state.score
+    }
+}
+
+export default connect(mapStatesToProps, {})(GameFinishedBox);

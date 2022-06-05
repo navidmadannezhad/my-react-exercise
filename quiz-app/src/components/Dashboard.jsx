@@ -2,7 +2,7 @@ import Timer from "./Timer";
 import TestTimer from "./TestTimer";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { get_questions } from "../redux/action/index";
+import { get_questions, increase_score, decrease_score } from "../redux/action/index";
 import QuestionBox from "./QuestionBox";
 import GameFinishedBox from "./GameFinishedBox";
 
@@ -14,9 +14,19 @@ const Dashboard = (props) => {
 
     const activateNextQuestion = () => {
         setAnswered(false);
-        setActiveQuestion(activeQuestion => {
-            return activeQuestion + 1;
-        });
+        if(activeQuestion != props.questions.length -1){
+            setActiveQuestion(activeQuestion => {
+                return activeQuestion + 1;
+            });
+        }
+        else{
+            setFinishState(true);
+        }
+    }
+
+    const checkAnswer = (selectedAnswerState) => {
+        setAnswered(true);
+        selectedAnswerState ? props.increase_score() : props.decrease_score();
     }
 
 
@@ -42,6 +52,7 @@ const Dashboard = (props) => {
                         question={props.questions[activeQuestion]} 
                         setAnswered={setAnswered} 
                         activateNextQuestion={activateNextQuestion}
+                        checkAnswer={checkAnswer}
                     />
                 )
             }
@@ -58,12 +69,15 @@ const Dashboard = (props) => {
 
 
 const mapActionsToProps = {
-    get_questions
+    get_questions,
+    increase_score,
+    decrease_score
 };
 
 const mapStatesToProps = state => {
     return {
-        questions: state.questions
+        questions: state.questions,
+        score: state.score
     }
 };
 

@@ -1,5 +1,6 @@
 let initialState = {
-    questions: []
+    questions: [],
+    score: 0
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -10,8 +11,18 @@ const rootReducer = (state = initialState, action) => {
                 questions: action.payload
             }
             break;
+        case "INCREASE_SCORE":
+            console.log("must increase");
+            return {
+                ...state,
+                score: state.score + 1
+            }
+            break;
+        case "DECREASE_SCORE":
+            console.log("must decrease");
+            return state;
+            break;
         default:
-            // console.log(action.type);
             return state;
     }
 }

@@ -1,6 +1,9 @@
 import { Form, Button } from 'react-bootstrap';
+import { useState } from "react";
 
 const QuestionBox = props => {
+
+    const [selectedAnswerState, setSelectedAnswerState] = useState();
 
     return (
         <div className="question-component">
@@ -20,7 +23,7 @@ const QuestionBox = props => {
                                             label={answer.text}
                                             name="answer"
                                             key={answer.text}
-
+                                            onClick={() => { setSelectedAnswerState(answer.state) }}
                                             className="ps-5 pt-1 pb-1 m-1 rounded"
                                         />
                                     ))
@@ -28,7 +31,7 @@ const QuestionBox = props => {
                             </Form>
                         </div>
                         <div className="w-100 text-center">
-                            <Button onClick={ () => { props.setAnswered(true) } }>Result</Button>
+                            <Button onClick={ () => { props.checkAnswer(selectedAnswerState) } }>Result</Button>
                         </div>
                     </div>
                 )
