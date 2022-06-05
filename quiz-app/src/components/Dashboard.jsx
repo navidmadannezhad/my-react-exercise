@@ -2,7 +2,7 @@ import Timer from "./Timer";
 import TestTimer from "./TestTimer";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { get_questions, increase_score, decrease_score } from "../redux/action/index";
+import { get_questions, increase_score, decrease_score, reset_score } from "../redux/action/index";
 import QuestionBox from "./QuestionBox";
 import GameFinishedBox from "./GameFinishedBox";
 
@@ -11,6 +11,13 @@ const Dashboard = (props) => {
     const [answered, setAnswered] = useState(false);
     const [gameIsFinished, setFinishState] = useState(false);
     const [activeQuestion, setActiveQuestion] = useState(0);
+
+    const resetGame = () => {
+        setFinishState(false);
+        props.reset_score();
+        setAnswered(false);
+        setActiveQuestion(0);
+    }
 
     const activateNextQuestion = () => {
         setAnswered(false);
@@ -59,7 +66,10 @@ const Dashboard = (props) => {
 
             {
                 gameIsFinished && (
-                    <GameFinishedBox timeFinished={true} />
+                    <GameFinishedBox
+                        timeFinished={true}
+                        resetGame={resetGame}
+                    />
                 )
             }
 
@@ -71,7 +81,8 @@ const Dashboard = (props) => {
 const mapActionsToProps = {
     get_questions,
     increase_score,
-    decrease_score
+    decrease_score,
+    reset_score
 };
 
 const mapStatesToProps = state => {

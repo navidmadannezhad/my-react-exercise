@@ -22,4 +22,10 @@ const decrease_score = () => async (dispatch) => {
     })
 };
 
-export { get_questions, increase_score, decrease_score };
+const reset_score = () => async (dispatch) => {
+    dispatch({
+        type: "RESET_SCORE",
+    })
+};
+
+export { get_questions, increase_score, decrease_score, reset_score };

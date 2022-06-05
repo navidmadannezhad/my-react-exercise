@@ -33,7 +33,7 @@ const GameFinishedBox = props => {
                 </div>
 
                 <div className="w-100 text-center mt-3">
-                    <Button>Start Again!</Button>
+                    <Button onClick={ () => { props.resetGame(); } }>Start Again!</Button>
                 </div>
             </div>
         </div>
