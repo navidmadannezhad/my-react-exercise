@@ -1,15 +1,19 @@
 import React from 'react'
 
-const Timer = () => {
+const Timer = props => {
    
-    const { hours = 0, minutes = 0, seconds = 60 } = {hours:1, minutes: 20, seconds: 40};
+    const { hours = 0, minutes = 0, seconds = 60 } = {hours:0 , minutes: 0, seconds: 10};
     const [[hrs, mins, secs], setTime] = React.useState([hours, minutes, seconds]);
     
 
     const tick = () => {
    
-        if (hrs === 0 && mins === 0 && secs === 0) 
-            reset()
+        if (hrs === 0 && mins === 0 && secs === 0) {
+            if(!props.gameIsFinished){
+                props.setTimeDone(true);
+                props.setFinishState(true);
+            }
+        }
         else if (mins === 0 && secs === 0) {
             setTime([hrs - 1, 59, 59]);
         } else if (secs === 0) {

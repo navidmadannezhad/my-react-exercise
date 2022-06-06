@@ -11,6 +11,7 @@ const Dashboard = (props) => {
     const [answered, setAnswered] = useState(false);
     const [gameIsFinished, setFinishState] = useState(false);
     const [activeQuestion, setActiveQuestion] = useState(0);
+    const [timeDone, setTimeDone] = useState(false);
 
     const resetGame = () => {
         setFinishState(false);
@@ -36,12 +37,9 @@ const Dashboard = (props) => {
         selectedAnswerState ? props.increase_score() : props.decrease_score();
     }
 
-
     useEffect(() => {
         props.get_questions();
     }, []);
-
-    
 
     return (
         <div className="dashboard-component border-bottom p-4">
@@ -49,7 +47,12 @@ const Dashboard = (props) => {
                 <div className="message mb-2">
                     Answer these questions carefully and also, pay attention to the timer!
                 </div>
-                <Timer />
+                <Timer 
+                    setTimeDone={setTimeDone}
+                    timeDone={timeDone}
+                    setFinishState={setFinishState}
+                    gameIsFinished={gameIsFinished}
+                />
             </div>
 
             {
@@ -67,7 +70,7 @@ const Dashboard = (props) => {
             {
                 gameIsFinished && (
                     <GameFinishedBox
-                        timeFinished={true}
+                        timeFinished={timeDone}
                         resetGame={resetGame}
                     />
                 )
