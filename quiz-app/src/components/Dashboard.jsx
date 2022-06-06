@@ -1,12 +1,13 @@
 import Timer from "./Timer";
 import TestTimer from "./TestTimer";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { get_questions, increase_score, decrease_score, reset_score } from "../redux/action/index";
 import QuestionBox from "./QuestionBox";
 import GameFinishedBox from "./GameFinishedBox";
 
 const Dashboard = (props) => {
+    const timerRef = useRef();
 
     const [answered, setAnswered] = useState(false);
     const [gameIsFinished, setFinishState] = useState(false);
@@ -18,6 +19,7 @@ const Dashboard = (props) => {
         props.reset_score();
         setAnswered(false);
         setActiveQuestion(0);
+        timerRef.current.reset();
     }
 
     const activateNextQuestion = () => {
@@ -48,6 +50,8 @@ const Dashboard = (props) => {
                     Answer these questions carefully and also, pay attention to the timer!
                 </div>
                 <Timer 
+                    ref={timerRef}
+
                     setTimeDone={setTimeDone}
                     timeDone={timeDone}
                     setFinishState={setFinishState}

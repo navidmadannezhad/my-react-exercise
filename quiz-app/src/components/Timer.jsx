@@ -1,10 +1,14 @@
 import React from 'react'
+import { forwardRef, useImperativeHandle } from 'react';
 
-const Timer = props => {
-   
+const Timer = forwardRef((props, ref) => {
+
     const { hours = 0, minutes = 0, seconds = 60 } = {hours:0 , minutes: 0, seconds: 10};
     const [[hrs, mins, secs], setTime] = React.useState([hours, minutes, seconds]);
-    
+
+    useImperativeHandle(ref, () => ({
+        reset() { setTime([parseInt(hours), parseInt(minutes), parseInt(seconds)]) }
+    }));
 
     const tick = () => {
    
@@ -23,9 +27,6 @@ const Timer = props => {
         }
     };
 
-
-    const reset = () => setTime([parseInt(hours), parseInt(minutes), parseInt(seconds)]);
-
     
     React.useEffect(() => {
         const timerId = setInterval(() => tick(), 1000);
@@ -40,6 +41,6 @@ const Timer = props => {
             .padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</p> 
         </div>
     );
-}
+})
 
 export default Timer;
