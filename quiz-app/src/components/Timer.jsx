@@ -3,7 +3,7 @@ import { forwardRef, useImperativeHandle } from 'react';
 
 const Timer = forwardRef((props, ref) => {
 
-    const { hours = 0, minutes = 0, seconds = 60 } = {hours:0 , minutes: 0, seconds: 10};
+    const { hours = 0, minutes = 0, seconds = 60 } = {hours:0 , minutes: 0, seconds: 30};
     const [[hrs, mins, secs], setTime] = React.useState([hours, minutes, seconds]);
 
     useImperativeHandle(ref, () => ({
